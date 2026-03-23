@@ -33,6 +33,7 @@
 
         <div class="info-row">
           <span>생년월일: {{ birth }}</span>
+          <span>출생 시각: {{ birth_time }}{% if gwe.si_index >= 0 %} ({{ gwe.si_name }}){% endif %}</span>
           <span>음력: {{ gwe.lunar.year }}년 {{ gwe.lunar.month }}월 {{ gwe.lunar.day }}일</span>
           <span>세수: {{ gwe.age }}세</span>
         </div>

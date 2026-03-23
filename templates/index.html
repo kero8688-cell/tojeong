@@ -58,6 +58,26 @@
           </div>
         </fieldset>
 
+        <fieldset class="fieldset">
+          <legend>출생 시각 (선택 — 30분 단위)</legend>
+          <div class="date-row">
+            <div class="date-field" style="flex:2">
+              <label>시각</label>
+              <select name="birth_time">
+                <option value="-1">모름 / 미입력</option>
+                {% for h in range(0, 24) %}
+                  {% for m in [0, 30] %}
+                  <option value="{{ '%02d:%02d' % (h, m) }}">{{ '%02d:%02d' % (h, m) }}</option>
+                  {% endfor %}
+                {% endfor %}
+              </select>
+            </div>
+            <div class="date-field" style="flex:3; justify-content:flex-end; padding-top:18px;">
+              <span class="time-hint">※ 시각을 알면 하괘(下卦)가 더 정밀하게 계산됩니다.</span>
+            </div>
+          </div>
+        </fieldset>
+
         <div class="form-row">
           <label>운세 보기 연도</label>
           <input type="number" name="target_year" min="2000" max="2100"

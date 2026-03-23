@@ -31,15 +31,26 @@ async def index(request: Request):
 @app.post("/result", response_class=HTMLResponse)
 async def result(
     request: Request,
-    birth_year:  int  = Form(...),
-    birth_month: int  = Form(...),
-    birth_day:   int  = Form(...),
-    target_year: int  = Form(...),
-    gender:      str  = Form("남"),
-    name:        str  = Form(""),
+    birth_year:   int  = Form(...),
+    birth_month:  int  = Form(...),
+    birth_day:    int  = Form(...),
+    target_year:  int  = Form(...),
+    gender:       str  = Form("남"),
+    name:         str  = Form(""),
+    birth_time:   str  = Form("-1"),   # "-1": 모름, "HH:MM" 형식
 ):
+    # 출생 시각 파싱
+    birth_hour, birth_minute = -1, 0
+    if birth_time and birth_time != "-1":
+        try:
+            h, m = birth_time.split(":")
+            birth_hour, birth_minute = int(h), int(m)
+        except ValueError:
+            pass
+
     try:
-        gwe = calculate_gwe(birth_year, birth_month, birth_day, target_year)
+        gwe = calculate_gwe(birth_year, birth_month, birth_day, target_year,
+                            birth_hour, birth_minute)
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"날짜 변환 오류: {e}")
 
@@ -63,6 +74,7 @@ async def result(
         "name":        name or "귀하",
         "gender":      gender,
         "birth":       f"{birth_year}년 {birth_month}월 {birth_day}일 (양력)",
+        "birth_time":  gwe["birth_time_str"],
         "target_year": target_year,
         "gwe":         gwe,
         "fortune":     fortune,
