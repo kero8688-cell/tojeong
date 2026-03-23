@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ name }}님의 토정비결 — {{ target_year }}년</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="page-wrap">
+    <header class="site-header">
+      <div class="header-ornament">✦</div>
+      <h1>土亭秘訣</h1>
+      <p class="subtitle">{{ name }}({{ gender }})님의 {{ target_year }}년 운세</p>
+      <div class="header-ornament">✦</div>
+    </header>
+
+    <main>
+      <!-- 괘 정보 -->
+      <section class="card gwe-card">
+        <div class="gwe-header">
+          <div class="gwe-key">第 {{ gwe.key }} 卦</div>
+          <div class="gwe-names">
+            <span>{{ gwe.sang_name }}</span>
+            <span class="dot">·</span>
+            <span>{{ gwe.jung_name }}</span>
+            <span class="dot">·</span>
+            <span>{{ gwe.ha_name }}</span>
+          </div>
+        </div>
+        <div class="verse" style="color: {{ grade_color }}">{{ fortune.verse }}</div>
+        <div class="grade-badge" style="background: {{ grade_color }}">{{ fortune.grade }}</div>
+
+        <div class="info-row">
+          <span>생년월일: {{ birth }}</span>
+          <span>음력: {{ gwe.lunar.year }}년 {{ gwe.lunar.month }}월 {{ gwe.lunar.day }}일</span>
+          <span>세수: {{ gwe.age }}세</span>
+        </div>
+      </section>
+
+      <!-- 연간 운세 -->
+      <section class="card">
+        <h2 class="section-title" style="color: {{ grade_color }}">✦ {{ target_year }}년 연간 운세</h2>
+        <p class="year-fortune">{{ fortune.year_fortune }}</p>
+      </section>
+
+      <!-- 월별 운세 -->
+      <section class="card">
+        <h2 class="section-title">✦ 월별 운세</h2>
+        <div class="month-grid">
+          {% for m in fortune.months %}
+          <div class="month-card">
+            <div class="month-label">{{ m.month }}</div>
+            <p class="month-text">{{ m.text }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      <div class="back-wrap">
+        <a href="/" class="btn-back">← 다시 보기</a>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>본 토정비결은 전통 역학을 바탕으로 재현한 것으로, 오락 목적으로만 활용하십시오.</p>
+    </footer>
+  </div>
+</body>
+</html>

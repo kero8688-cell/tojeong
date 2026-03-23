@@ -1,0 +1,281 @@
+/* ── 기본 설정 ──────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold:    #b8860b;
+  --gold-lt: #f5e6b2;
+  --ink:     #2c1a0e;
+  --paper:   #fdf6e3;
+  --paper2:  #f7edd5;
+  --border:  #c8a96e;
+  --shadow:  rgba(100, 60, 10, 0.15);
+}
+
+body {
+  font-family: 'Noto Serif KR', 'Malgun Gothic', serif;
+  background: var(--paper) url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c8a96e' fill-opacity='0.08'%3E%3Cpath d='M0 20h40M20 0v40' stroke='%23c8a96e' stroke-width='0.5'/%3E%3C/g%3E%3C/svg%3E");
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+/* ── 레이아웃 ────────────────────────────── */
+.page-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+/* ── 헤더 ──────────────────────────────── */
+.site-header {
+  text-align: center;
+  padding: 32px 0 24px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 28px;
+}
+
+.site-header h1 {
+  font-size: 2.8rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.12);
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #7a5c3a;
+  margin-top: 6px;
+}
+
+.header-ornament {
+  color: var(--gold);
+  font-size: 1rem;
+  letter-spacing: 0.5em;
+  margin: 6px 0;
+}
+
+/* ── 카드 ──────────────────────────────── */
+.card {
+  background: var(--paper2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 28px 32px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 10px var(--shadow);
+}
+
+.card-title {
+  font-size: 1.1rem;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 22px;
+  letter-spacing: 0.1em;
+}
+
+/* ── 폼 ────────────────────────────────── */
+.form { display: flex; flex-direction: column; gap: 16px; }
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.form-row label:first-child {
+  width: 110px;
+  font-size: 0.9rem;
+  color: #5a3e28;
+  flex-shrink: 0;
+}
+
+.form-row input[type="text"],
+.form-row input[type="number"] {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: #fff9ee;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.fieldset {
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 14px 16px;
+}
+
+.fieldset legend {
+  font-size: 0.85rem;
+  color: #7a5c3a;
+  padding: 0 6px;
+}
+
+.date-row { display: flex; gap: 12px; margin-top: 10px; }
+
+.date-field { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+
+.date-field label { font-size: 0.8rem; color: #7a5c3a; }
+
+.date-field input,
+.date-field select {
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: #fff9ee;
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+
+.radio-group { display: flex; gap: 18px; }
+.radio-label { font-size: 0.92rem; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+
+.btn-submit {
+  margin-top: 8px;
+  padding: 13px;
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-submit:hover { background: #9a6f0a; }
+
+/* ── 결과 화면 — 괘 헤더 ───────────────── */
+.gwe-card { text-align: center; }
+
+.gwe-header { margin-bottom: 12px; }
+
+.gwe-key {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+}
+
+.gwe-names {
+  margin-top: 4px;
+  font-size: 1rem;
+  color: #5a3e28;
+  letter-spacing: 0.1em;
+}
+
+.dot { margin: 0 6px; color: var(--border); }
+
+.verse {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  margin: 14px 0 10px;
+}
+
+.grade-badge {
+  display: inline-block;
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 3px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.info-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  font-size: 0.82rem;
+  color: #7a5c3a;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+/* ── 연간 운세 ──────────────────────────── */
+.section-title {
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.year-fortune {
+  line-height: 1.9;
+  font-size: 0.97rem;
+  color: #3a2510;
+}
+
+/* ── 월별 운세 ──────────────────────────── */
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.month-card {
+  background: #fff9ee;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 12px 14px;
+}
+
+.month-label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--gold);
+  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+}
+
+.month-text {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: #3a2510;
+}
+
+/* ── 뒤로가기 ───────────────────────────── */
+.back-wrap { text-align: center; margin-top: 10px; }
+
+.btn-back {
+  display: inline-block;
+  padding: 10px 28px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--gold);
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  transition: background 0.2s;
+}
+
+.btn-back:hover { background: var(--gold-lt); }
+
+/* ── 푸터 ──────────────────────────────── */
+.site-footer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #a08060;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* ── 반응형 ─────────────────────────────── */
+@media (max-width: 520px) {
+  .site-header h1 { font-size: 2rem; }
+  .date-row { flex-direction: column; }
+  .form-row { flex-direction: column; align-items: flex-start; }
+  .form-row label:first-child { width: auto; }
+  .info-row { flex-direction: column; align-items: center; gap: 6px; }
+}
